@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour {
     public Rigidbody2D rb;
     float movementX;
 
-    SpriteRenderer sr;
+    public SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,14 @@ public class Controller : MonoBehaviour {
     private void Update() {
         movementX = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(movementX));
+
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             sr.flipX = true;
+        }
+        else if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            sr.flipX = false;
         }
     }
 
